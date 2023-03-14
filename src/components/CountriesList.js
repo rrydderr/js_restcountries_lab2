@@ -1,11 +1,19 @@
-import Countries from "./Countries";
+import CountriesContainer from "../containers/CountriesContainer";
+import Country from "./Country";
 
-const CountriesList = ({ countries }) => {
-  const countriesMap = countries.map((countries, index) => {
-    return <Countries countries={countries} key={index}/>;
-  });
+const CountriesList = ({countries, updateVisitedList}) => {
+    const countryComponents = countries.map((country, index)=>{
+        return <Country country = {country} key={index} updateVisitedList={updateVisitedList}/>
+    });
 
-  return <ul>{countriesMap}</ul>;
-};
+    return (
+        <>
+        <ul>
+            {countryComponents}
+        </ul>
+        
+        </>
+    )
+}
 
 export default CountriesList;
